@@ -1,60 +1,38 @@
 <template>
   <nav class="nav">
-    <div class="container">
+    <div>
       <h2 style="padding-top: 20px; padding-left: 40px">My-Store</h2>
 
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <button class="cart">
-          Cart ({{ cart }})
-        </button>
+      <div>
+        <button class="log-btn">Login</button>
+        <button class="cart">Cart ({{ cart }})</button>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-12" id="app">
+  
         <div
           v-for="item in itemList"
           :key="item.id"
-          class="card mt-3 ppp"
-          style="
-            background-color: rgba(193, 255, 241, 0.637);
-            width: 18rem;
-            top: 10%;
-            margin-right: 24px;
-            border-color: black;
-            border-radius: 10px black;
-            position: relative;
-            display: inline-block;
-          "
+          class="card"
         >
-          <!-- <img :src="require('../assets/images/' + item.itemImage + '.jpg')" class="card-img-top" alt="image"> -->
-
-          <img :src="item.itemImage" class="card-img-top" alt="image" />
-
-          <div class="card-body">
-            <h5 class="card-title text-dark">{{ item.itemName }}</h5>
-            <p class="card-text text-dark">{{ item.subtitle }}</p>
-            <p class="badge bg-success">{{ item.price }}</p>
+          <img :src="item.itemImage" class="card-img-top" style="width: 100%" alt="image" />
+          <div class="product" >
+            <h5 style="font-size: 20px; margin-left:20px; top:10px;" >{{ item.itemName }}</h5>
+            <p style="font-size: 15px; margin-left:12px; margin-top:6px;">{{ item.subtitle }}</p>
+            <p style="font-size: 18px; margin-left:12px; width:127px; margin-top:8px; background-color: #7042b9 ;">{{ item.price }}</p>
             <br />
             <a
               :href="item.url"
-              style="margin-right: 20px; margin-top: 10px"
-              class="btn btn-primary"
+              style="font-size: 17px;margin-left: 20px; margin-bottom: 20px; background-color: #bdahg3e;"
               >Buy</a
             >
-            <a
-              @click="cart += 1"
-              class="btn btn-primary"
-              style="margin-top: 10px"
-              >Add to Cart</a
-            >
+             <button   @click="addToCart"
+              style="font-size: 17px;margin-left: 50px; background-color: #bdaa3e;">Add to Cart</button>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+     
+
 </template>
 
 <script>
@@ -113,28 +91,59 @@ export default {
           url: "https://www.amazon.in/Samsung-Galaxy-Midnight-Blue-Storage/dp/B07HGJJ559",
         },
       ],
-    };
-  },
-};
+    methods: {
+    addTocart(){
+        this.cart += 1
+    }
+  }
+}
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .nav {
-  
   background-color: aqua;
   height: 60px;
 }
-
-.cart {
-    padding: 2px 6px;
-    font-size: 20px;
-    position: fixed;
-  margin-left: 970px;
-  top: 16px;
+.log-btn {
+  color: white;
+  background-color: rgb(90, 35, 90);
+  padding: 2px 6px;
+  font-size: 20px;
+  position: relative;
+  margin-left: 890px;
+  top: -30px;
   display: inline-block;
 }
-.ppp {
+.cart {
+  padding: 2px 6px;
+  font-size: 20px;
+  position: relative;
+  margin-left: 970px;
+  top: -60px;
+  display: inline-block;
+}
+.card {
+  left: 50px;
+  background-color: rgba(54, 87, 79, 0.637);
+  width: 18rem;
+  height: auto;
+  top: 60px;
+  border: rgb(37, 27, 27) solid 2px;
+  margin-right: 24px;
+  margin-bottom: 40px;
+  border-color: black;
+  border-radius: 10px rgb(87, 187, 137);
+  position: relative;
+  display: inline-block;
+}
+.product{
+    background-color:rgb(110, 209, 188) ;
+
+}
+.app {
   top: 5%;
   margin-right: 22px;
 }
@@ -150,6 +159,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #bdaa3e;
 }
 </style>
