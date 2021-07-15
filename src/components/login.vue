@@ -28,10 +28,8 @@
             maxlength="15"
             required
           />
-
-          <button mat-button type="submit" routerLink="/home" class="btn">
-            Login
-          </button>
+<button  class="btn"><router-link to="/">Home</router-link> </button>
+         
         </form>
         <p class="re">Don't have an account?</p>
         <button mat-button routerLink="/register" class="btn1">Register</button>
@@ -59,7 +57,7 @@ export default {
 }
 body {
   font-family: "Poppins", sans-serif;
-  overflow: hidden;
+  
 }
 .la {
   color: #000;
