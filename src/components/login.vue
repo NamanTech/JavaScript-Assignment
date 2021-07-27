@@ -28,7 +28,7 @@
             maxlength="15"
             required
           />
-<button  class="btn"><router-link to="/">Home</router-link> </button>
+<button  class="btn"><router-link to="/">Login</router-link> </button>
          
         </form>
         <p class="re">Don't have an account?</p>

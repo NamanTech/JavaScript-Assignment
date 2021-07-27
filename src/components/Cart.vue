@@ -36,9 +36,9 @@ export default {
             .then(res=>res.json())
             .then(json=>this.cartlist=json)
   },
-  created() {
-    this.$store.dispatch("getCartItems");
-  },
+  // created() {
+  //   this.$store.dispatch("getCartItems");
+  // },
   methods: {
     addTocart() {
       this.cart = this.cart + 1;

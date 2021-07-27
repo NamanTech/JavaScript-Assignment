@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+    <nav class="nav">
     <div>
       <h2 style="padding-top: 20px; padding-left: 40px">My-Store</h2>
 
@@ -11,7 +11,7 @@
     </div>
   </nav>
 
-  <div v-for="item in itemList" :key="item.id" class="card">
+  <div class="card">
      
     <img
 
@@ -58,43 +58,30 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
-  name: "Home",
+  name: "Details",
   data() {
     return {
       cart: 0,
-      itemList: [],
+      item: {},
     };
   },
   mounted() {
-    fetch('https://fakestoreapi.com/products')
+      fetch('https://fakestoreapi.com/products/1')
             .then(res=>res.json())
-            .then(json=>this.itemList = json)
+            .then(json=>this.item = json)
+    
   },
   methods: {
     addTocart() {
       this.cart = this.cart + 1;
-      fetch('https://fakestoreapi.com/carts/7',{
-            method:"PUT",
-            body:JSON.stringify(
-                {
-                    userId:3,
-                    date:2019-12-10,
-                    products:[{productId:1,quantity:3}]
-                }
-            )
-        })
-            .then(res=>res.json())
-            .then(json=>this.productid = json)
     },
   },
 };
 </script>
+<style >
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
 html {
   overflow: scroll;
 }
@@ -154,3 +141,5 @@ li {
   margin: 0 10px;
 }
 </style>
+
+
